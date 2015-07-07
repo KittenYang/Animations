@@ -28,7 +28,7 @@
     curveView = [[CurveView alloc]init];
     curveView.backgroundColor = [UIColor grayColor];
     ;    curveView.center = self.view.center;
-    curveView.bounds = CGRectMake(0, 0, 100, 100);
+    curveView.bounds = CGRectMake(0, 0, 200, 200);
     [self.view addSubview:curveView];
     
 }
