@@ -11,6 +11,9 @@
 
 @interface CurveLayer : CALayer
 
+/**
+ *  CurveLayer的进度 0~1
+ */
 @property(nonatomic,assign)CGFloat progress;
 
 

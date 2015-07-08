@@ -10,8 +10,13 @@
 
 @interface LabelView : UIView
 
+
+/**
+ *  LabelView的进度 0~1
+ */
 @property(nonatomic,assign)CGFloat progress;
 
 
+@property(nonatomic,assign)BOOL loading;
 
 @end

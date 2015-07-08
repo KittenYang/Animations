@@ -33,9 +33,6 @@
 }
 
 
-
-
-
 -(void)setProgress:(CGFloat)progress{
 
     self.curveLayer.progress = progress;

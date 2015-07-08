@@ -225,7 +225,6 @@
 				TargetAttributes = {
 					5FB8743C1B4A6CCC008A3940 = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = G7V6TVQLXL;
 					};
 					5FB874551B4A6CCE008A3940 = {
 						CreatedOnToolsVersion = 6.3;
@@ -412,7 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xinyu Li (XWYND9KE57)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AnimatedCurveDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -426,7 +425,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Xinyu Li (XWYND9KE57)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AnimatedCurveDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;

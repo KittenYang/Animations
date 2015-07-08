@@ -25,10 +25,10 @@
     
     LabelView *labelView;
     CurveView *curveView;
+
     BOOL willEnd;
-    
     BOOL notTracking;
-    
+    BOOL loading;
 }
 
 
@@ -53,34 +53,39 @@
 
 -(void)setProgress:(CGFloat)progress{
     
-    NSLog(@"progress...");
-    if (!willEnd) {
+    if (!self.associatedScrollView.tracking) {
+        labelView.loading = YES;
+    }
+    
+    if (!willEnd && !loading ) {
+        NSLog(@"progress:%f",progress);
         curveView.progress = labelView.progress = progress;
     }
 
-    self.center = CGPointMake(self.center.x, -ABS(self.associatedScrollView.contentOffset.y+64)/2);
+
+    self.center = CGPointMake(self.center.x, -fabs(self.associatedScrollView.contentOffset.y+64)/2);
     
     
-    CGFloat diff = ABS(self.associatedScrollView.contentOffset.y+64) - self.pullDistance;
-    
+    CGFloat diff = fabs(self.associatedScrollView.contentOffset.y+64) - self.pullDistance + 10;
+    NSLog(@"diff:%f",diff);
     
     if (diff > 0) {
-
-        curveView.transform = CGAffineTransformMakeRotation(M_PI * (diff/180));
         
+        curveView.transform = CGAffineTransformMakeRotation(M_PI * (diff*4/180));
         
         if (!self.associatedScrollView.tracking) {
-            
             if (!notTracking) {
-            
                 notTracking = YES;
-                //不停旋转...
+                loading = YES;
+//                labelView.loading = YES;
+            
+                //旋转...
                 [self startLoading:curveView];
                 NSLog(@"旋转");
                 
                 [UIView animateWithDuration:0.3 animations:^{
                     
-                    self.associatedScrollView.contentInset = UIEdgeInsetsMake(self.pullDistance + 65, 0, 0, 0);
+                    self.associatedScrollView.contentInset = UIEdgeInsetsMake(self.pullDistance + 64, 0, 0, 0);
                     
                 } completion:^(BOOL finished) {
                     
@@ -92,7 +97,10 @@
         
 
     }else{
+        
+        labelView.loading = NO;
         curveView.transform = CGAffineTransformIdentity;
+        
     }
     
 }
@@ -126,6 +134,8 @@
         self.alpha = 1.0f;
         willEnd = NO;
         notTracking = NO;
+        loading = NO;
+        labelView.loading = NO;
         [self stopLoading:curveView];
     }];
 
@@ -181,7 +191,8 @@
         
         if (contentOffset.y + 64 <= 0) {
             
-            self.progress = MAX(0, MIN(ABS(contentOffset.y+64)/self.pullDistance, 1));
+            self.progress = MAX(0.0, MIN(fabs(contentOffset.y+64)/self.pullDistance, 1.0));
+        
         }
     }
 }

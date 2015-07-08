@@ -52,10 +52,21 @@
     
     titleLabel.alpha = progress;
     
-    if (progress >= 1.0) {
-        titleLabel.text = kReleaseString;
+    if (!self.loading) {
+        if (progress >= 1.0) {
+            titleLabel.text = kReleaseString;
+        }else{
+            titleLabel.text = kPullingString;
+        }
     }else{
-        titleLabel.text = kPullingString;
+        
+        if (progress >= 0.91) {
+            titleLabel.text = kReleaseString;
+        }else{
+            titleLabel.text = kPullingString;
+        }
+
+        
     }
     
     

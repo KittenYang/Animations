@@ -48,8 +48,7 @@
         [arrowPath addLineToPoint:CGPointMake(pointB.x - 3*(cosf(Degree)), pointB.y + 3*(sinf(Degree)))];
         [curvePath1 appendPath:arrowPath];
 
-    }
-    if (self.progress > 0.5) {
+    }else if (self.progress > 0.5) {
         
         CGPoint pointA = CGPointMake(self.frame.size.width/2-Radius, CenterY - Space + LineLength - LineLength*(self.progress-0.5)*2);
         CGPoint pointB = CGPointMake(self.frame.size.width/2-Radius, CenterY - Space);
