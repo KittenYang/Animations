@@ -7,17 +7,21 @@
 //
 
 #import "ViewController.h"
-#import "CurveView.h"
+#import "UIView+Convenient.h"
+
+#import "KYPullToCurveVeiw.h"
 
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UISlider *slider;
+
+
+
 @end
 
 @implementation ViewController{
-    CurveView *curveView;
+
 }
 
 - (void)viewDidLoad {
@@ -26,12 +30,34 @@
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"testCell"];
     [self.tableView layoutIfNeeded];
 
-    curveView = [[CurveView alloc]initWithFrame:CGRectZero withAssociatedScrollView:self.tableView];
-    curveView.center = CGPointMake(self.tableView.frame.size.width/2, -30);
-    curveView.bounds = CGRectMake(0, 0, 100, 100);
-    [self.tableView insertSubview:curveView atIndex:0];
+    
+    
+    
+    KYPullToCurveVeiw *headerView = [[KYPullToCurveVeiw alloc]initWithAssociatedScrollView:self.tableView];
+
+    __weak KYPullToCurveVeiw *weakHeaderView = headerView;
+
+    [headerView addRefreshingBlock:^{
+        
+        //具体的操作
+        //...
+    
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        
+            [weakHeaderView stopRefreshing];
+            
+        });
+
+    }];
+    
+    [self.tableView insertSubview:headerView atIndex:0];
+
+    
     
 }
+
 
 
 
@@ -46,7 +72,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *testCell = [tableView dequeueReusableCellWithIdentifier:@"testCell" forIndexPath:indexPath];
-    testCell.textLabel.text = [NSString stringWithFormat:@"第%ld条",indexPath.row];
+    testCell.textLabel.text = [NSString stringWithFormat:@"第%ld条",(long)indexPath.row];
     return testCell;
     
 }

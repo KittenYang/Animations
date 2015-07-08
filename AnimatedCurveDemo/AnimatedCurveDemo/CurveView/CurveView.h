@@ -13,7 +13,6 @@
 @property(nonatomic,assign)CGFloat progress;
 
 
--(id)initWithFrame:(CGRect)frame withAssociatedScrollView:(UIScrollView *)associatedScrollView;
 
 
 @end

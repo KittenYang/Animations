@@ -16,6 +16,9 @@
 		5FB8745D1B4A6CCE008A3940 /* AnimatedCurveDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8745C1B4A6CCE008A3940 /* AnimatedCurveDemoTests.m */; };
 		5FB874681B4A6D15008A3940 /* CurveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB874671B4A6D15008A3940 /* CurveLayer.m */; };
 		5FB8746B1B4A7415008A3940 /* CurveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8746A1B4A7415008A3940 /* CurveView.m */; };
+		F4E8F4E51B4CE46B00027A22 /* LabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E8F4E41B4CE46B00027A22 /* LabelView.m */; };
+		F4E8F4E91B4CEDA900027A22 /* UIView+Convenient.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E8F4E81B4CEDA900027A22 /* UIView+Convenient.m */; };
+		F4E8F4ED1B4D082500027A22 /* KYPullToCurveVeiw.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E8F4EC1B4D082500027A22 /* KYPullToCurveVeiw.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,12 @@
 		5FB874671B4A6D15008A3940 /* CurveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurveLayer.m; path = CurveLayer/CurveLayer.m; sourceTree = "<group>"; };
 		5FB874691B4A7415008A3940 /* CurveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CurveView.h; path = CurveView/CurveView.h; sourceTree = "<group>"; };
 		5FB8746A1B4A7415008A3940 /* CurveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CurveView.m; path = CurveView/CurveView.m; sourceTree = "<group>"; };
+		F4E8F4E31B4CE46B00027A22 /* LabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LabelView.h; path = LabelView/LabelView.h; sourceTree = "<group>"; };
+		F4E8F4E41B4CE46B00027A22 /* LabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LabelView.m; path = LabelView/LabelView.m; sourceTree = "<group>"; };
+		F4E8F4E71B4CEDA900027A22 /* UIView+Convenient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Convenient.h"; path = "Helpers/UIView+Convenient.h"; sourceTree = "<group>"; };
+		F4E8F4E81B4CEDA900027A22 /* UIView+Convenient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Convenient.m"; path = "Helpers/UIView+Convenient.m"; sourceTree = "<group>"; };
+		F4E8F4EB1B4D082500027A22 /* KYPullToCurveVeiw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KYPullToCurveVeiw.h; path = KYPullToCurveVeiw/KYPullToCurveVeiw.h; sourceTree = "<group>"; };
+		F4E8F4EC1B4D082500027A22 /* KYPullToCurveVeiw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KYPullToCurveVeiw.m; path = KYPullToCurveVeiw/KYPullToCurveVeiw.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +100,7 @@
 				5FB874451B4A6CCC008A3940 /* AppDelegate.m */,
 				5FB874471B4A6CCC008A3940 /* ViewController.h */,
 				5FB874481B4A6CCD008A3940 /* ViewController.m */,
-				5FB874751B4CC70B008A3940 /* CurveView */,
+				F4E8F4EE1B4D082A00027A22 /* KYPullToCurveVeiw */,
 				5FB8744A1B4A6CCD008A3940 /* Main.storyboard */,
 				5FB8744D1B4A6CCD008A3940 /* Images.xcassets */,
 				5FB8744F1B4A6CCD008A3940 /* LaunchScreen.xib */,
@@ -135,6 +144,36 @@
 				5FB874671B4A6D15008A3940 /* CurveLayer.m */,
 			);
 			name = CurveView;
+			sourceTree = "<group>";
+		};
+		F4E8F4E61B4CE47200027A22 /* LabelView */ = {
+			isa = PBXGroup;
+			children = (
+				F4E8F4E31B4CE46B00027A22 /* LabelView.h */,
+				F4E8F4E41B4CE46B00027A22 /* LabelView.m */,
+			);
+			name = LabelView;
+			sourceTree = "<group>";
+		};
+		F4E8F4EA1B4D073A00027A22 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F4E8F4E71B4CEDA900027A22 /* UIView+Convenient.h */,
+				F4E8F4E81B4CEDA900027A22 /* UIView+Convenient.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
+		F4E8F4EE1B4D082A00027A22 /* KYPullToCurveVeiw */ = {
+			isa = PBXGroup;
+			children = (
+				F4E8F4EB1B4D082500027A22 /* KYPullToCurveVeiw.h */,
+				F4E8F4EC1B4D082500027A22 /* KYPullToCurveVeiw.m */,
+				F4E8F4EA1B4D073A00027A22 /* Helper */,
+				F4E8F4E61B4CE47200027A22 /* LabelView */,
+				5FB874751B4CC70B008A3940 /* CurveView */,
+			);
+			name = KYPullToCurveVeiw;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,10 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FB874491B4A6CCD008A3940 /* ViewController.m in Sources */,
+				F4E8F4E91B4CEDA900027A22 /* UIView+Convenient.m in Sources */,
+				F4E8F4ED1B4D082500027A22 /* KYPullToCurveVeiw.m in Sources */,
 				5FB874681B4A6D15008A3940 /* CurveLayer.m in Sources */,
 				5FB8746B1B4A7415008A3940 /* CurveView.m in Sources */,
 				5FB874461B4A6CCC008A3940 /* AppDelegate.m in Sources */,
 				5FB874431B4A6CCC008A3940 /* main.m in Sources */,
+				F4E8F4E51B4CE46B00027A22 /* LabelView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
