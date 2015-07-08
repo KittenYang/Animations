@@ -31,8 +31,6 @@
     [self.tableView layoutIfNeeded];
 
     
-    
-    
     KYPullToCurveVeiw *headerView = [[KYPullToCurveVeiw alloc]initWithAssociatedScrollView:self.tableView];
 
     __weak KYPullToCurveVeiw *weakHeaderView = headerView;
