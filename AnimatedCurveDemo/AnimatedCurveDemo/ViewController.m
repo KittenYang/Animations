@@ -51,11 +51,9 @@
         });
 
     }];
-    
-    [self.tableView insertSubview:headerView atIndex:0];
 
-    
-    
+
+
 }
 
 

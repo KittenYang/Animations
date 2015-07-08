@@ -41,8 +41,8 @@
         
         self.associatedScrollView = scrollView;
         [self setUp];
-        
         [self.associatedScrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+        [self.associatedScrollView insertSubview:self atIndex:0];
         
     }
     
@@ -53,7 +53,7 @@
 
 -(void)setProgress:(CGFloat)progress{
     
-    NSLog(@"...");
+    NSLog(@"progress...");
     if (!willEnd) {
         curveView.progress = labelView.progress = progress;
     }
