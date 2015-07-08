@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"testCell"];
-    [self.view layoutIfNeeded];
+    [self.tableView layoutIfNeeded];
 
     curveView = [[CurveView alloc]initWithFrame:CGRectZero withAssociatedScrollView:self.tableView];
     curveView.center = CGPointMake(self.tableView.frame.size.width/2, -30);
