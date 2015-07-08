@@ -91,10 +91,7 @@
 				5FB874451B4A6CCC008A3940 /* AppDelegate.m */,
 				5FB874471B4A6CCC008A3940 /* ViewController.h */,
 				5FB874481B4A6CCD008A3940 /* ViewController.m */,
-				5FB874691B4A7415008A3940 /* CurveView.h */,
-				5FB8746A1B4A7415008A3940 /* CurveView.m */,
-				5FB874661B4A6D15008A3940 /* CurveLayer.h */,
-				5FB874671B4A6D15008A3940 /* CurveLayer.m */,
+				5FB874751B4CC70B008A3940 /* CurveView */,
 				5FB8744A1B4A6CCD008A3940 /* Main.storyboard */,
 				5FB8744D1B4A6CCD008A3940 /* Images.xcassets */,
 				5FB8744F1B4A6CCD008A3940 /* LaunchScreen.xib */,
@@ -127,6 +124,17 @@
 				5FB8745B1B4A6CCE008A3940 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FB874751B4CC70B008A3940 /* CurveView */ = {
+			isa = PBXGroup;
+			children = (
+				5FB874691B4A7415008A3940 /* CurveView.h */,
+				5FB8746A1B4A7415008A3940 /* CurveView.m */,
+				5FB874661B4A6D15008A3940 /* CurveLayer.h */,
+				5FB874671B4A6D15008A3940 /* CurveLayer.m */,
+			);
+			name = CurveView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -10,8 +10,9 @@
 #import "CurveView.h"
 
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISlider *slider;
 @end
 
@@ -21,22 +22,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    [self.slider addTarget:self action:@selector(sliderValueChanged:) forControlEvents:UIControlEventValueChanged];
-
     
-    curveView = [[CurveView alloc]init];
-    curveView.backgroundColor = [UIColor grayColor];
-    ;    curveView.center = self.view.center;
-    curveView.bounds = CGRectMake(0, 0, 80, 80);
-    [self.view addSubview:curveView];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"testCell"];
+    [self.view layoutIfNeeded];
+
+    curveView = [[CurveView alloc]initWithFrame:CGRectZero withAssociatedScrollView:self.tableView];
+    curveView.center = CGPointMake(self.tableView.frame.size.width/2, -30);
+    curveView.bounds = CGRectMake(0, 0, 100, 100);
+    [self.tableView insertSubview:curveView atIndex:0];
     
 }
 
-- (void)sliderValueChanged:(UISlider *)sender {
+
+
+
+#pragma mark -- UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    curveView.progress = sender.value;
+    return 20;
 }
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *testCell = [tableView dequeueReusableCellWithIdentifier:@"testCell" forIndexPath:indexPath];
+    testCell.textLabel.text = [NSString stringWithFormat:@"第%ld条",indexPath.row];
+    return testCell;
+    
+}
+
 
 
 - (void)didReceiveMemoryWarning {

@@ -102,7 +102,7 @@
     CGContextRestoreGState(context);
 
     
-    [[UIColor whiteColor] setStroke];
+    [[UIColor blackColor] setStroke];
     [arrowPath  stroke];
     [curvePath1 stroke];
     [curvePath2 stroke];
@@ -113,7 +113,7 @@
 }
 
 
-
+#pragma mark -- Help Method
 
 -(CGPoint)getMiddlePointWithPoint1:(CGPoint)point1 point2:(CGPoint)point2{
     
