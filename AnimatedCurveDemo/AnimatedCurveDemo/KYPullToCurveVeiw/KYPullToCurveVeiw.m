@@ -58,7 +58,7 @@
     }
     
     if (!willEnd && !loading ) {
-        NSLog(@"progress:%f",progress);
+//        NSLog(@"progress:%f",progress);
         curveView.progress = labelView.progress = progress;
     }
 
@@ -67,11 +67,9 @@
     
     
     CGFloat diff = fabs(self.associatedScrollView.contentOffset.y+64) - self.pullDistance + 10;
-    NSLog(@"diff:%f",diff);
+//    NSLog(@"diff:%f",diff);
     
     if (diff > 0) {
-        
-        curveView.transform = CGAffineTransformMakeRotation(M_PI * (diff*4/180));
         
         if (!self.associatedScrollView.tracking) {
             if (!notTracking) {
@@ -79,9 +77,10 @@
                 loading = YES;
 //                labelView.loading = YES;
             
+                NSLog(@"旋转");
+                
                 //旋转...
                 [self startLoading:curveView];
-                NSLog(@"旋转");
                 
                 [UIView animateWithDuration:0.3 animations:^{
                     
@@ -95,6 +94,10 @@
             }
         }
         
+        if (!loading) {
+            
+            curveView.transform = CGAffineTransformMakeRotation(M_PI * (diff*2/180));
+        }
 
     }else{
         
@@ -164,10 +167,12 @@
 
 - (void)startLoading:(UIView *)rotateView
 {
+
+    rotateView.transform = CGAffineTransformIdentity;
     
     CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
     rotationAnimation.toValue = @(M_PI * 2.0);
-    rotationAnimation.duration = 0.4f;
+    rotationAnimation.duration = 0.5f;
     rotationAnimation.autoreverses = NO;
     rotationAnimation.repeatCount = HUGE_VALF;
     rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
