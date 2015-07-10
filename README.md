@@ -3,7 +3,10 @@
 
 ##1.AnimatedCurveDemo
 
+弯曲弧线的下拉刷新，使用只需要两行代码
+
 ![](curverAnim_2.gif)
+
 
 ###Usage:
 
