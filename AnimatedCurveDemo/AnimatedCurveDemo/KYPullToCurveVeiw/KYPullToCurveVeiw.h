@@ -25,12 +25,11 @@
  *
  *  @return self
  */
--(id)initWithAssociatedScrollView:(UIScrollView *)scrollView;
+-(id)initWithAssociatedScrollView:(UIScrollView *)scrollView withNavigationBar:(BOOL)navBar;
 
 /**
  *  立即触发下拉刷新
  */
-#warning TODO
 -(void)triggerPulling;
 
 /**

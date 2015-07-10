@@ -29,31 +29,35 @@
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"testCell"];
     [self.tableView layoutIfNeeded];
+}
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+
+    KYPullToCurveVeiw *headerView = [[KYPullToCurveVeiw alloc]initWithAssociatedScrollView:self.tableView withNavigationBar:YES];
     
-    KYPullToCurveVeiw *headerView = [[KYPullToCurveVeiw alloc]initWithAssociatedScrollView:self.tableView];
-
+    
     __weak KYPullToCurveVeiw *weakHeaderView = headerView;
-
+    
+    [headerView triggerPulling];
+    
     [headerView addRefreshingBlock:^{
         
         //具体的操作
         //...
-    
+        
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
+            
             [weakHeaderView stopRefreshing];
             
         });
-
+        
     }];
-
-
-
+    
 }
-
 
 
 

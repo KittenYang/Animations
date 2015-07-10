@@ -12,6 +12,7 @@
 #import "UIView+Convenient.h"
 
 
+
 @interface KYPullToCurveVeiw()
 
 @property(nonatomic,assign)CGFloat progress;
@@ -26,6 +27,7 @@
     LabelView *labelView;
     CurveView *curveView;
 
+    CGFloat originOffset;
     BOOL willEnd;
     BOOL notTracking;
     BOOL loading;
@@ -34,11 +36,15 @@
 
 #pragma mark -- Public Method
 
--(id)initWithAssociatedScrollView:(UIScrollView *)scrollView{
+-(id)initWithAssociatedScrollView:(UIScrollView *)scrollView withNavigationBar:(BOOL)navBar{
     
     self = [super initWithFrame:CGRectMake(scrollView.width/2-200/2, -100, 200, 100)];
     if (self) {
-        
+        if (navBar) {
+            originOffset = 64.0f;
+        }else{
+            originOffset = 0.0f;
+        }
         self.associatedScrollView = scrollView;
         [self setUp];
         [self.associatedScrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
@@ -63,10 +69,10 @@
     }
 
 
-    self.center = CGPointMake(self.center.x, -fabs(self.associatedScrollView.contentOffset.y+64)/2);
+    self.center = CGPointMake(self.center.x, -fabs(self.associatedScrollView.contentOffset.y+originOffset)/2);
     
     
-    CGFloat diff = fabs(self.associatedScrollView.contentOffset.y+64) - self.pullDistance + 10;
+    CGFloat diff = fabs(self.associatedScrollView.contentOffset.y+originOffset) - self.pullDistance + 10;
 //    NSLog(@"diff:%f",diff);
     
     if (diff > 0) {
@@ -84,7 +90,7 @@
                 
                 [UIView animateWithDuration:0.3 animations:^{
                     
-                    self.associatedScrollView.contentInset = UIEdgeInsetsMake(self.pullDistance + 64, 0, 0, 0);
+                    self.associatedScrollView.contentInset = UIEdgeInsetsMake(self.pullDistance + originOffset, 0, 0, 0);
                     
                 } completion:^(BOOL finished) {
                     
@@ -119,7 +125,7 @@
 
 -(void)triggerPulling{
 
-#warning TODO
+    [self.associatedScrollView setContentOffset:CGPointMake(0, -self.pullDistance) animated:YES];
 
 }
 
@@ -132,7 +138,7 @@
     self.progress = 1.0;
     [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.alpha = 0.0f;
-        self.associatedScrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+        self.associatedScrollView.contentInset = UIEdgeInsetsMake(originOffset+0.1, 0, 0, 0);
     } completion:^(BOOL finished) {
         self.alpha = 1.0f;
         willEnd = NO;
@@ -194,9 +200,9 @@
         
         CGPoint contentOffset = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
         
-        if (contentOffset.y + 64 <= 0) {
+        if (contentOffset.y + originOffset <= 0) {
             
-            self.progress = MAX(0.0, MIN(fabs(contentOffset.y+64)/self.pullDistance, 1.0));
+            self.progress = MAX(0.0, MIN(fabs(contentOffset.y+originOffset)/self.pullDistance, 1.0));
         
         }
     }
