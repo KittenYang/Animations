@@ -125,7 +125,7 @@
 
 -(void)triggerPulling{
 
-    [self.associatedScrollView setContentOffset:CGPointMake(0, -self.pullDistance) animated:YES];
+    [self.associatedScrollView setContentOffset:CGPointMake(0, -self.pullDistance-originOffset) animated:YES];
 
 }
 
