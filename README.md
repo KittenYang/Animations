@@ -37,6 +37,28 @@
         
     }];
     
+    
+    KYPullToCurveVeiw_footer *footerView = [[KYPullToCurveVeiw_footer alloc]initWithAssociatedScrollView:self.tableView withNavigationBar:YES];
+    
+    __weak KYPullToCurveVeiw_footer *weakFooterView= footerView;
+    
+    [footerView addRefreshingBlock:^{
+        
+        //具体的操作
+        //...
+        
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            
+            [weakFooterView stopRefreshing];
+            
+        });
+        
+        
+    }];
+
+    
 }
 
 
