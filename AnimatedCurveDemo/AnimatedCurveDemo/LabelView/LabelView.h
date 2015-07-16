@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef enum : NSUInteger {
+    UP,
+    DOWN,
+} PULLINGSTATE;
+
 @interface LabelView : UIView
 
 
@@ -17,6 +23,16 @@
 @property(nonatomic,assign)CGFloat progress;
 
 
+/**
+ *  是否正在刷新
+ */
 @property(nonatomic,assign)BOOL loading;
+
+
+/**
+ *  上拉还是下拉
+ */
+@property(nonatomic,assign)PULLINGSTATE state;
+
 
 @end

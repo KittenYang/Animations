@@ -9,8 +9,14 @@
 #import "LabelView.h"
 #import "UIView+Convenient.h"
 
-#define kPullingString  @"下拉即可刷新..."
-#define kReleaseString  @"松开即可刷新..."
+#define kPullingDownString   @"下拉即可刷新..."
+#define kPullingUpString     @"上拉即可刷新"
+#define kReleaseString       @"松开即可刷新..."
+
+#define kPullingString   self.state == UP ? kPullingUpString : kPullingDownString
+
+
+//#define self.state
 
 #define LabelHeight 50
 
@@ -30,6 +36,8 @@
         
         [self setUp];
 
+
+
     }
     
     return self;
@@ -39,6 +47,7 @@
 
 -(void)setUp{
     
+    self.state = DOWN;
     titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.height/2-LabelHeight/2, self.width, LabelHeight)];
     titleLabel.text = kPullingString;
     titleLabel.textColor = [UIColor blackColor];

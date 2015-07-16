@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F5C13E71B57ED4F00A3EBE8 /* KYPullToCurveVeiw_footer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5C13E61B57ED4F00A3EBE8 /* KYPullToCurveVeiw_footer.m */; };
 		5FB874431B4A6CCC008A3940 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB874421B4A6CCC008A3940 /* main.m */; };
 		5FB874461B4A6CCC008A3940 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB874451B4A6CCC008A3940 /* AppDelegate.m */; };
 		5FB874491B4A6CCD008A3940 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB874481B4A6CCD008A3940 /* ViewController.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F5C13E51B57ED4F00A3EBE8 /* KYPullToCurveVeiw_footer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KYPullToCurveVeiw_footer.h; path = KYPullToCurveVeiw/KYPullToCurveVeiw_footer.h; sourceTree = "<group>"; };
+		5F5C13E61B57ED4F00A3EBE8 /* KYPullToCurveVeiw_footer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KYPullToCurveVeiw_footer.m; path = KYPullToCurveVeiw/KYPullToCurveVeiw_footer.m; sourceTree = "<group>"; };
 		5FB8743D1B4A6CCC008A3940 /* AnimatedCurveDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimatedCurveDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB874411B4A6CCC008A3940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FB874421B4A6CCC008A3940 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -167,6 +170,8 @@
 		F4E8F4EE1B4D082A00027A22 /* KYPullToCurveVeiw */ = {
 			isa = PBXGroup;
 			children = (
+				5F5C13E51B57ED4F00A3EBE8 /* KYPullToCurveVeiw_footer.h */,
+				5F5C13E61B57ED4F00A3EBE8 /* KYPullToCurveVeiw_footer.m */,
 				F4E8F4EB1B4D082500027A22 /* KYPullToCurveVeiw.h */,
 				F4E8F4EC1B4D082500027A22 /* KYPullToCurveVeiw.m */,
 				F4E8F4EA1B4D073A00027A22 /* Helper */,
@@ -280,6 +285,7 @@
 				F4E8F4E91B4CEDA900027A22 /* UIView+Convenient.m in Sources */,
 				F4E8F4ED1B4D082500027A22 /* KYPullToCurveVeiw.m in Sources */,
 				5FB874681B4A6D15008A3940 /* CurveLayer.m in Sources */,
+				5F5C13E71B57ED4F00A3EBE8 /* KYPullToCurveVeiw_footer.m in Sources */,
 				5FB8746B1B4A7415008A3940 /* CurveView.m in Sources */,
 				5FB874461B4A6CCC008A3940 /* AppDelegate.m in Sources */,
 				5FB874431B4A6CCC008A3940 /* main.m in Sources */,
