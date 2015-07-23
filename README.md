@@ -1,12 +1,13 @@
 # Animations
+
+A few of test animations.
+
 一些动画的飞机稿，都是一些单独分离出来的用于测试的子动画，现在统一归类一下。
 
 ##1.AnimatedCurveDemo
 
-弯曲弧线的下拉刷新，使用只需要两行代码
 
 ![](curverAnim_2.gif)
-
 
 ###Usage:
 
@@ -56,3 +57,10 @@
 
 
 ```
+
+
+##1.AnimatedCircleDemo
+
+![](circleAnim.gif)
+
+A transformable layer with progress control. 
