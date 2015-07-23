@@ -14,6 +14,8 @@
 		5FAAC18E1B6127D9006583DF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FAAC18D1B6127D9006583DF /* Images.xcassets */; };
 		5FAAC1911B6127D9006583DF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FAAC18F1B6127D9006583DF /* LaunchScreen.xib */; };
 		5FAAC19D1B6127DA006583DF /* AnimatedCircleDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAAC19C1B6127DA006583DF /* AnimatedCircleDemoTests.m */; };
+		5FAAC1A81B61286F006583DF /* CircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAAC1A71B61286F006583DF /* CircleView.m */; };
+		5FAAC1AC1B6128A3006583DF /* CircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAAC1AB1B6128A3006583DF /* CircleLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		5FAAC1961B6127D9006583DF /* AnimatedCircleDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimatedCircleDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FAAC19B1B6127D9006583DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FAAC19C1B6127DA006583DF /* AnimatedCircleDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimatedCircleDemoTests.m; sourceTree = "<group>"; };
+		5FAAC1A61B61286F006583DF /* CircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleView.h; path = CircleView/CircleView.h; sourceTree = "<group>"; };
+		5FAAC1A71B61286F006583DF /* CircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleView.m; path = CircleView/CircleView.m; sourceTree = "<group>"; };
+		5FAAC1AA1B6128A3006583DF /* CircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CircleLayer.h; path = CircleView/CircleLayer.h; sourceTree = "<group>"; };
+		5FAAC1AB1B6128A3006583DF /* CircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CircleLayer.m; path = CircleView/CircleLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,7 @@
 				5FAAC1851B6127D9006583DF /* AppDelegate.m */,
 				5FAAC1871B6127D9006583DF /* ViewController.h */,
 				5FAAC1881B6127D9006583DF /* ViewController.m */,
+				5FAAC1A91B612874006583DF /* CircleView */,
 				5FAAC18A1B6127D9006583DF /* Main.storyboard */,
 				5FAAC18D1B6127D9006583DF /* Images.xcassets */,
 				5FAAC18F1B6127D9006583DF /* LaunchScreen.xib */,
@@ -117,6 +124,17 @@
 				5FAAC19B1B6127D9006583DF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5FAAC1A91B612874006583DF /* CircleView */ = {
+			isa = PBXGroup;
+			children = (
+				5FAAC1A61B61286F006583DF /* CircleView.h */,
+				5FAAC1A71B61286F006583DF /* CircleView.m */,
+				5FAAC1AA1B6128A3006583DF /* CircleLayer.h */,
+				5FAAC1AB1B6128A3006583DF /* CircleLayer.m */,
+			);
+			name = CircleView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +237,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FAAC1A81B61286F006583DF /* CircleView.m in Sources */,
+				5FAAC1AC1B6128A3006583DF /* CircleLayer.m in Sources */,
 				5FAAC1891B6127D9006583DF /* ViewController.m in Sources */,
 				5FAAC1861B6127D9006583DF /* AppDelegate.m in Sources */,
 				5FAAC1831B6127D9006583DF /* main.m in Sources */,
@@ -350,6 +370,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AnimatedCircleDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -360,6 +381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AnimatedCircleDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -418,6 +440,7 @@
 				5FAAC1A21B6127DA006583DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5FAAC1A31B6127DA006583DF /* Build configuration list for PBXNativeTarget "AnimatedCircleDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +449,7 @@
 				5FAAC1A51B6127DA006583DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

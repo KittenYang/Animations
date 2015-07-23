@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "CircleView.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UISlider *mySlider;
+@property (weak, nonatomic) IBOutlet UILabel *currentValueLabel;
+@property (strong,nonatomic) CircleView *cv;
 
 @end
 
@@ -16,7 +20,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    [self.mySlider addTarget:self action:@selector(valuechanged:) forControlEvents:UIControlEventValueChanged];
+
+    self.cv = [[CircleView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2 - 100, self.view.frame.size.height/2 - 100, 200, 200)];
+    self.cv.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:self.cv];
+    
+    //首次进入
+    self.cv.circleLayer.progress = _mySlider.value;
+}
+
+
+-(void)valuechanged:(UISlider *)sender{
+    
+    self.currentValueLabel.text = [NSString stringWithFormat:@"Current:  %f",sender.value];
+    self.cv.circleLayer.progress = sender.value;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
