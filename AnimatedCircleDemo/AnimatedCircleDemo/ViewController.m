@@ -23,8 +23,8 @@
 
     [self.mySlider addTarget:self action:@selector(valuechanged:) forControlEvents:UIControlEventValueChanged];
 
-    self.cv = [[CircleView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2 - 100, self.view.frame.size.height/2 - 100, 200, 200)];
-    self.cv.backgroundColor = [UIColor lightGrayColor];
+    self.cv = [[CircleView alloc]initWithFrame:CGRectMake(self.view.frame.size.width/2 - 320/2, self.view.frame.size.height/2 - 320/2, 320, 320)];
+//    self.cv.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:self.cv];
     
     //首次进入

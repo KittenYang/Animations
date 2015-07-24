@@ -14,7 +14,7 @@ typedef enum MovingPoint {
     POINT_B,
 } MovingPoint;
 
-#define outsideRectSize 50
+#define outsideRectSize 90
 
 @interface CircleLayer()
 
@@ -36,7 +36,9 @@ typedef enum MovingPoint {
 
 @end
 
-@implementation CircleLayer
+@implementation CircleLayer{
+
+}
 
 -(id)init{
     
@@ -66,7 +68,7 @@ typedef enum MovingPoint {
     CGFloat offset = self.outsideRect.size.width / 3.6;
     
     //A.B.C.D实际需要移动的距离.系数为滑块偏离中点0.5的绝对值再乘以2.当滑到两端的时候，movedDistance为最大值：「外接矩形宽度的1/5」.
-    CGFloat movedDistance = (self.outsideRect.size.width * 1 / 5) * fabs(self.progress-0.5)*2;
+    CGFloat movedDistance = (self.outsideRect.size.width * 1 / 6) * fabs(self.progress-0.5)*2;
     
     //方便下方计算各点坐标，先算出外接矩形的中心点坐标
     CGPoint rectCenter = CGPointMake(self.outsideRect.origin.x + self.outsideRect.size.width/2 , self.outsideRect.origin.y + self.outsideRect.size.height/2);
@@ -79,15 +81,15 @@ typedef enum MovingPoint {
     
     
     CGPoint c1 = CGPointMake(pointA.x + offset, pointA.y);
-    CGPoint c2 = CGPointMake(pointB.x, pointB.y - offset);
+    CGPoint c2 = CGPointMake(pointB.x, self.movePoint == POINT_D ? pointB.y - offset : pointB.y - offset + movedDistance);
     
-    CGPoint c3 = CGPointMake(pointB.x, pointB.y + offset);
+    CGPoint c3 = CGPointMake(pointB.x, self.movePoint == POINT_D ? pointB.y + offset : pointB.y + offset - movedDistance);
     CGPoint c4 = CGPointMake(pointC.x + offset, pointC.y);
     
     CGPoint c5 = CGPointMake(pointC.x - offset, pointC.y);
-    CGPoint c6 = CGPointMake(pointD.x, pointD.y + offset);
+    CGPoint c6 = CGPointMake(pointD.x, self.movePoint == POINT_D ? pointD.y + offset - movedDistance : pointD.y + offset);
     
-    CGPoint c7 = CGPointMake(pointD.x, pointD.y - offset);
+    CGPoint c7 = CGPointMake(pointD.x, self.movePoint == POINT_D ? pointD.y - offset + movedDistance : pointD.y - offset);
     CGPoint c8 = CGPointMake(pointA.x - offset, pointA.y);
 
     
@@ -116,11 +118,11 @@ typedef enum MovingPoint {
     CGContextSetLineDash(ctx, 0, NULL, 0); //2
     CGContextDrawPath(ctx, kCGPathFillStroke); //同时给线条和线条包围的内部区域填充颜色
     
-    //标记出每个点并连线，方便观察
+    
+    //标记出每个点并连线，方便观察，给所有关键点染色 -- 白色,辅助线颜色 -- 白色
     //语法糖：字典@{}，数组@[]，基本数据类型封装成对象@234，@12.0，@YES,@(234+12.0)
-    //给所有关键点染色 -- 白色,辅助线颜色 -- 白色
     CGContextSetFillColorWithColor(ctx, [UIColor yellowColor].CGColor);
-    CGContextSetStrokeColorWithColor(ctx, [UIColor whiteColor].CGColor);
+    CGContextSetStrokeColorWithColor(ctx, [UIColor blackColor].CGColor);
     NSArray *points = @[[NSValue valueWithCGPoint:pointA],[NSValue valueWithCGPoint:pointB],[NSValue valueWithCGPoint:pointC],[NSValue valueWithCGPoint:pointD],[NSValue valueWithCGPoint:c1],[NSValue valueWithCGPoint:c2],[NSValue valueWithCGPoint:c3],[NSValue valueWithCGPoint:c4],[NSValue valueWithCGPoint:c5],[NSValue valueWithCGPoint:c6],[NSValue valueWithCGPoint:c7],[NSValue valueWithCGPoint:c8]];
     [self drawPoint:points withContext:ctx];
     
@@ -183,7 +185,7 @@ typedef enum MovingPoint {
     CGFloat origin_y = self.position.y - outsideRectSize/2;
     
     self.outsideRect = CGRectMake(origin_x, origin_y, outsideRectSize, outsideRectSize);
-    
+
     [self setNeedsDisplay];
 }
 
