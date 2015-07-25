@@ -148,18 +148,16 @@ typedef enum MovingPoint {
     CGContextSetLineDash(ctx, 0.0, dash2, 2);
     CGContextStrokePath(ctx); //给辅助线条填充颜色
     
-    
-    
-    //ctx字面意思是上下文，你可以理解为一块全局的画布。也就是说，一旦在某个地方改了画布的一些属性，其他任何使用画布的属性的时候都是改了之后的。比如上面在 //1 中把线条样式改成了虚线，那么在下文 //2 中如果不恢复成连续的直线，那么画出来的依然是//1中的虚线样式。
-
 }
+
+//ctx字面意思是上下文，你可以理解为一块全局的画布。也就是说，一旦在某个地方改了画布的一些属性，其他任何使用画布的属性的时候都是改了之后的。比如上面在 //1 中把线条样式改成了虚线，那么在下文 //2 中如果不恢复成连续的直线，那么画出来的依然是//1中的虚线样式。
 
 //在某个point位置画一个点，方便观察运动情况
 -(void)drawPoint:(NSArray *)points withContext:(CGContextRef)ctx{
 
     for (NSValue *pointValue in points) {
         CGPoint point = [pointValue CGPointValue];
-        CGContextFillRect(ctx, CGRectMake(point.x - 1,point.y - 1,2,2));
+        CGContextFillRect(ctx, CGRectMake(point.x - 2,point.y - 2,4,4));
     }
 }
 
