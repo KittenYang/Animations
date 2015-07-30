@@ -49,7 +49,7 @@
     navTitle.textAlignment = NSTextAlignmentCenter;
     navTitle.textColor = [UIColor blackColor];
 //    navTitle.backgroundColor = [UIColor redColor];
-    navTitle.text = @"曲线弯曲动画";
+    navTitle.text = @"Fade in/out navbar title";
     [bkView addSubview:navTitle];
     
 }
