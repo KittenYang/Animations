@@ -48,7 +48,6 @@
     navTitle.alpha = 0;
     navTitle.textAlignment = NSTextAlignmentCenter;
     navTitle.textColor = [UIColor blackColor];
-//    navTitle.backgroundColor = [UIColor redColor];
     navTitle.text = @"Fade in/out navbar title";
     [bkView addSubview:navTitle];
     
