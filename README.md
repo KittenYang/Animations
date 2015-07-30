@@ -68,3 +68,15 @@ A few of test animations.
 ![](circleAnim.gif)
 
 A transformable layer with progress control. 
+
+---
+
+---
+
+# 3. NavbarTitleWithFadeAnimation
+
+Just set two values: `initialOffset` which is the distance of title between navbar  & `targetHeight` which means the scroll distance to target cell. 
+
+And then,the code will automaticly compute the translation value and alpha value.
+
+![](NavbarTitleWithFadeAnimation.gif)
