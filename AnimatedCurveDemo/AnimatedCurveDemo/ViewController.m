@@ -13,7 +13,11 @@
 #import "KYPullToCurveVeiw_footer.h"
 
 
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+#define initialOffset 50.0
+
+#define targetHeight 500.0
+
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -23,15 +27,48 @@
 
 @implementation ViewController{
 
+    UILabel *navTitle;
+    UIView *bkView;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"testCell"];
     [self.tableView layoutIfNeeded];
+    
+    bkView = [[UIView alloc]init];
+    bkView.center = CGPointMake(self.view.center.x, 22);
+    bkView.bounds = CGRectMake(0, 0, 250, 44);
+    bkView.clipsToBounds = YES;
+    [self.navigationController.navigationBar addSubview:bkView];
+    
+    navTitle = [[UILabel alloc]initWithFrame:CGRectMake(0, 44+initialOffset,bkView.frame.size.width, 44)];
+    navTitle.alpha = 0;
+    navTitle.textAlignment = NSTextAlignmentCenter;
+    navTitle.textColor = [UIColor blackColor];
+//    navTitle.backgroundColor = [UIColor redColor];
+    navTitle.text = @"曲线弯曲动画";
+    [bkView addSubview:navTitle];
+    
 }
 
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    
+
+    CGFloat transitionY = MIN(MAX(0, scrollView.contentOffset.y+64), 44+initialOffset+targetHeight);
+    NSLog(@"%f",transitionY);
+    if (transitionY <= initialOffset) {
+        navTitle.frame = CGRectMake(0, 44+initialOffset-transitionY,bkView.frame.size.width , 44);
+    }else{
+        
+        CGFloat factor = MAX(0, MIN(1, (transitionY-initialOffset)/targetHeight));
+        navTitle.frame = CGRectMake(0, 44-factor*44,bkView.frame.size.width , 44);
+        navTitle.alpha = factor*factor*1;
+    }
+    
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -88,7 +125,7 @@
 #pragma mark -- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
-    return 20;
+    return 50;
 }
 
 
