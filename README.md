@@ -80,3 +80,8 @@ Just set two values: `initialOffset` which is the distance of title between navb
 And then,the code will automaticly compute the translation value and alpha value.
 
 ![](NavbarTitleWithFadeAnimation.gif)
+
+
+
+# 4.zoom-out splash view
+
