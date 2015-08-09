@@ -55,7 +55,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
-UIWindow
+
     CGFloat transitionY = MIN(MAX(0, scrollView.contentOffset.y+64), 44+initialOffset+targetHeight);
     NSLog(@"%f",transitionY);
     if (transitionY <= initialOffset) {
