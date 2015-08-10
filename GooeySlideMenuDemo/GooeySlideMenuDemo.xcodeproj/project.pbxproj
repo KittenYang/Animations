@@ -14,6 +14,7 @@
 		5F2B34061B77928F0024D2D4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5F2B34051B77928F0024D2D4 /* Images.xcassets */; };
 		5F2B34091B77928F0024D2D4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2B34071B77928F0024D2D4 /* LaunchScreen.xib */; };
 		5F2B34151B77928F0024D2D4 /* GooeySlideMenuDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2B34141B77928F0024D2D4 /* GooeySlideMenuDemoTests.m */; };
+		5F2B34201B7916AB0024D2D4 /* GooeySlideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2B341F1B7916AB0024D2D4 /* GooeySlideMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		5F2B340E1B77928F0024D2D4 /* GooeySlideMenuDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GooeySlideMenuDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2B34131B77928F0024D2D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F2B34141B77928F0024D2D4 /* GooeySlideMenuDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GooeySlideMenuDemoTests.m; sourceTree = "<group>"; };
+		5F2B341E1B7916AB0024D2D4 /* GooeySlideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GooeySlideMenu.h; path = Classes/GooeySlideMenu.h; sourceTree = "<group>"; };
+		5F2B341F1B7916AB0024D2D4 /* GooeySlideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GooeySlideMenu.m; path = Classes/GooeySlideMenu.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		5F2B33F71B77928F0024D2D4 /* GooeySlideMenuDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5F2B34211B7916AF0024D2D4 /* Classes */,
 				5F2B33FC1B77928F0024D2D4 /* AppDelegate.h */,
 				5F2B33FD1B77928F0024D2D4 /* AppDelegate.m */,
 				5F2B33FF1B77928F0024D2D4 /* ViewController.h */,
@@ -117,6 +121,15 @@
 				5F2B34131B77928F0024D2D4 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5F2B34211B7916AF0024D2D4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5F2B341E1B7916AB0024D2D4 /* GooeySlideMenu.h */,
+				5F2B341F1B7916AB0024D2D4 /* GooeySlideMenu.m */,
+			);
+			name = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F2B34201B7916AB0024D2D4 /* GooeySlideMenu.m in Sources */,
 				5F2B34011B77928F0024D2D4 /* ViewController.m in Sources */,
 				5F2B33FE1B77928F0024D2D4 /* AppDelegate.m in Sources */,
 				5F2B33FB1B77928F0024D2D4 /* main.m in Sources */,
@@ -418,6 +432,7 @@
 				5F2B341A1B77928F0024D2D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5F2B341B1B77928F0024D2D4 /* Build configuration list for PBXNativeTarget "GooeySlideMenuDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +441,7 @@
 				5F2B341D1B77928F0024D2D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
