@@ -2,7 +2,7 @@
 
 A few of test animations.
 
-一些动画的飞机稿，都是一些单独分离出来的用于测试的子动画，现在统一归类一下。
+一些动画的飞机稿。
 
 # 1. AnimatedCurveDemo
 
@@ -22,7 +22,7 @@ A few of test animations.
     [headerView triggerPulling];
     [headerView addRefreshingBlock:^{
         
-        //具体的操作
+        //Your detail action...
         //...
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
@@ -35,11 +35,11 @@ A few of test animations.
     }];
     
     
-    //上拉刷新 Pull up to refresh
+    // Pull up to refresh
     KYPullToCurveVeiw_footer *footerView = [[KYPullToCurveVeiw_footer alloc]initWithAssociatedScrollView:self.tableView withNavigationBar:YES];
     __weak KYPullToCurveVeiw_footer *weakFooterView= footerView;
     [footerView addRefreshingBlock:^{
-        //具体的操作
+        //Your detail action...
         //...
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
