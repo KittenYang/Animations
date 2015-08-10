@@ -83,7 +83,11 @@ And then,the code will automaticly compute the translation value and alpha value
 
 
 
-# 4.zoom-out splash view
+# 4.Zoom-out splash view
 
 ![](splash animatino.gif)
 
+
+# 5.GooeySlideMenu
+
+***Stay tuned..***
