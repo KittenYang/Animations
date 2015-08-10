@@ -60,7 +60,6 @@ A few of test animations.
 
 ---
 
----
 
 
 # 2. AnimatedCircleDemo
@@ -71,7 +70,7 @@ A transformable layer with progress control.
 
 ---
 
----
+
 
 # 3. NavbarTitleWithFadeAnimation
 
@@ -83,7 +82,7 @@ And then,the code will automaticly compute the translation value and alpha value
 
 ---
 
----
+
 
 
 # 4.Zoom-out splash view
@@ -92,7 +91,7 @@ And then,the code will automaticly compute the translation value and alpha value
 
 ---
 
----
+
 
 # 5.GooeySlideMenu
 
