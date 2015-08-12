@@ -94,5 +94,6 @@ And then,the code will automaticly compute the translation value and alpha value
 
 
 # 5.GooeySlideMenu
+![](GooeySlideMenu.gif)
 
-***Stay tuned..***
+
