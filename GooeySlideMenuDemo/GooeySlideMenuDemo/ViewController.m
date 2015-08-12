@@ -7,21 +7,45 @@
 //
 
 #import "ViewController.h"
+#import "GooeySlideMenu.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @end
 
-@implementation ViewController
+@implementation ViewController{
+    GooeySlideMenu *menu;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    menu = [[GooeySlideMenu alloc]initWithTitles:@[@"首页",@"消息",@"发布",@"发现",@"个人",@"设置"]];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)buttonTrigger:(id)sender {
+    [menu trigger];
+}
+
+
+
+#pragma mark -- UITabel View Datasource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"demoCell"];
+    cell.textLabel.text = [NSString stringWithFormat:@"NO.%ld",(long)indexPath.row];
+    
+    return cell;
 }
 
 @end

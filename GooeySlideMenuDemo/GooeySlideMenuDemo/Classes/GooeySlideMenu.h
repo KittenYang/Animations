@@ -10,4 +10,9 @@
 
 @interface GooeySlideMenu : UIView
 
+
+-(id)initWithTitles:(NSArray *)titles;
+
+-(void)trigger;
+
 @end
