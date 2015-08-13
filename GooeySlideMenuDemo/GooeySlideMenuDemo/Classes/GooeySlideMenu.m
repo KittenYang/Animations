@@ -229,7 +229,7 @@
     for (NSInteger i = 0; i < self.subviews.count; i++) {
         
         UIView *menuButton = self.subviews[i];
-        menuButton.transform = CGAffineTransformMakeTranslation(-50, 0);
+        menuButton.transform = CGAffineTransformMakeTranslation(-90, 0);
         
         [UIView animateWithDuration:0.7 delay:i*(0.3/self.subviews.count) usingSpringWithDamping:0.6f initialSpringVelocity:0.0f options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction animations:^{
             
