@@ -96,4 +96,14 @@ And then,the code will automaticly compute the translation value and alpha value
 # 5.GooeySlideMenu
 ![](GooeySlideMenu.gif)
 
-> ###TODO:Add menu buttons clicked block.
+*Easily to use*
+
+```objc
+    menu = [[GooeySlideMenu alloc]initWithTitles:@[@"首页",@"消息",@"发布",@"发现",@"个人",@"设置"]];
+    menu.menuClickBlock = ^(NSInteger index,NSString *title,NSInteger titleCounts){
+        
+        NSLog(@"index:%ld title:%@ titleCounts:%ld",index,title,titleCounts);
+    };
+
+    [menu trigger];
+```
