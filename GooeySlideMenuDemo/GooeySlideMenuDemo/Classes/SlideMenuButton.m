@@ -39,7 +39,6 @@
     CGContextFillPath(context);
 
     
-    //// Rounded Rectangle Drawing
     UIBezierPath* roundedRectanglePath = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(rect, 1, 1) cornerRadius: rect.size.height/2];
     [self.buttonColor setFill];
     [roundedRectanglePath fill];
@@ -63,6 +62,26 @@
     [self.buttonTitle drawInRect:r withAttributes:attr];
     
 }
+
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    NSUInteger tapCount = touch.tapCount;
+    
+    
+    switch (tapCount) {
+        case 1:
+            self.buttonClickBlock();
+            break;
+    
+        default:
+            break;
+    }
+    
+}
+
+
+
 
 
 @end

@@ -26,4 +26,13 @@
  */
 @property(nonatomic,strong)UIColor *buttonColor;
 
+
+
+/**
+ *  button clicked block
+ */
+@property(nonatomic,copy)void(^buttonClickBlock)(void);
+
+
+
 @end

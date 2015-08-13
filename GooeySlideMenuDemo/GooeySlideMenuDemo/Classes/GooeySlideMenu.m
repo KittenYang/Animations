@@ -103,7 +103,17 @@
             home_button.buttonColor = _menuColor;
             [self addSubview:home_button];
             
+            __weak typeof(self) WeakSelf = self;
+            
+            home_button.buttonClickBlock = ^(){
+              
+                [WeakSelf tapToUntrigger:nil];
+                WeakSelf.menuClickBlock(i,title,titles.count);
+            };
+            
         }
+        
+
 
         
         
@@ -120,8 +130,18 @@
             home_button.buttonColor = _menuColor;
             [self addSubview:home_button];
             
+            __weak typeof(self) WeakSelf = self;
+            home_button.buttonClickBlock = ^(){
+                
+                [WeakSelf tapToUntrigger:nil];
+                WeakSelf.menuClickBlock(i,title,titles.count);
+            };
+            
         }
     }
+    
+    
+    
     
 }
 
@@ -291,7 +311,7 @@
     
     
     diff = sideRect.origin.x - centerRect.origin.x;
-    NSLog(@"diff:%f",diff);
+//    NSLog(@"diff:%f",diff);
     
     [self setNeedsDisplay];
     

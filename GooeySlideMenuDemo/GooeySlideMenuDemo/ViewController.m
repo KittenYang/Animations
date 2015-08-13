@@ -23,7 +23,10 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     menu = [[GooeySlideMenu alloc]initWithTitles:@[@"首页",@"消息",@"发布",@"发现",@"个人",@"设置"]];
-
+    menu.menuClickBlock = ^(NSInteger index,NSString *title,NSInteger titleCounts){
+        
+        NSLog(@"index:%ld title:%@ titleCounts:%ld",index,title,titleCounts);
+    };
 }
 
 - (void)didReceiveMemoryWarning {

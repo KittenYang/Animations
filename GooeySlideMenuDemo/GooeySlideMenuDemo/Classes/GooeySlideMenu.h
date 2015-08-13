@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^MenuButtonClickedBlock)(NSInteger index,NSString *title,NSInteger titleCounts);
+
 @interface GooeySlideMenu : UIView
 
 /**
@@ -43,6 +45,10 @@
 @property(nonatomic,assign)CGFloat menuButtonHeight;
 
 
+/**
+ *  The block of menu buttons cliced
+ */
+@property(nonatomic,copy)MenuButtonClickedBlock menuClickBlock;
 
 
 

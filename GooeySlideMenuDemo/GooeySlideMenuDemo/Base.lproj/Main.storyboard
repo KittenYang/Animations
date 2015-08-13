@@ -69,12 +69,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1073" y="339"/>
+            <point key="canvasLocation" x="1885" y="1000"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="bPS-wQ-BFo">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Sv-zK-vzq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="jJ4-Io-ET4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WIN-GP-oqu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -87,7 +88,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Zm-W7-Ofu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="261" y="1000"/>
+            <point key="canvasLocation" x="1073" y="1000"/>
         </scene>
     </scenes>
 </document>
