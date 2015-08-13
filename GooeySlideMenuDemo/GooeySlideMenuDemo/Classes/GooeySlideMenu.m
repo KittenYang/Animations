@@ -9,9 +9,10 @@
 #import "GooeySlideMenu.h"
 #import "SlideMenuButton.h"
 
-#define DEMOCOLOR [UIColor colorWithRed:0 green:0.722 blue:1 alpha:1]
+
 #define SPACE 30
 #define EXTRAAREA 50
+#define BUTTONHEIGHT 40
 
 @interface GooeySlideMenu()
 
@@ -28,16 +29,24 @@
     UIWindow *keyWindow;
     BOOL triggered;
     CGFloat diff;
+    UIColor *_menuColor;
 }
 
+
 -(id)initWithTitles:(NSArray *)titles{
+    
+    return [self initWithTitles:titles withButtonHeight:40.0f withMenuColor:[UIColor colorWithRed:0 green:0.722 blue:1 alpha:1] withBackBlurStyle:UIBlurEffectStyleDark];
+}
+
+
+-(id)initWithTitles:(NSArray *)titles withButtonHeight:(CGFloat)height withMenuColor:(UIColor *)menuColor withBackBlurStyle:(UIBlurEffectStyle)style{
     
     self = [super init];
     if (self) {
         
         keyWindow = [[UIApplication sharedApplication]keyWindow];
         
-        blurView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+        blurView = [[UIVisualEffectView alloc]initWithEffect:[UIBlurEffect effectWithStyle:style]];
         blurView.frame = keyWindow.frame;
         blurView.alpha = 0.0f;
         
@@ -57,12 +66,16 @@
         self.backgroundColor = [UIColor clearColor];
         [keyWindow insertSubview:self belowSubview:helperSideView];
         
+        _menuColor = menuColor;
+        self.menuButtonHeight = height;
         [self addButtons:titles];
         
     }
     
     return self;
 }
+
+
 
 -(void)addButtons:(NSArray *)titles{
 
@@ -79,15 +92,15 @@
             if (i >= titles.count / 2) {
 
                 index_up ++;
-                home_button.center = CGPointMake(keyWindow.frame.size.width/4, keyWindow.frame.size.height/2 + 50*index_up + SPACE*index_up + SPACE/2 + 50/2);
+                home_button.center = CGPointMake(keyWindow.frame.size.width/4, keyWindow.frame.size.height/2 + self.menuButtonHeight*index_up + SPACE*index_up + SPACE/2 + self.menuButtonHeight/2);
             }else{
                 
                 index_down --;
-                home_button.center = CGPointMake(keyWindow.frame.size.width/4, keyWindow.frame.size.height/2 - 50*index_down - SPACE*index_down - SPACE/2 - 50/2);
+                home_button.center = CGPointMake(keyWindow.frame.size.width/4, keyWindow.frame.size.height/2 - self.menuButtonHeight*index_down - SPACE*index_down - SPACE/2 - self.menuButtonHeight/2);
             }
             
-            home_button.bounds = CGRectMake(0, 0, keyWindow.frame.size.width/2 - 20*2, 50);
-            home_button.buttonColor = DEMOCOLOR;
+            home_button.bounds = CGRectMake(0, 0, keyWindow.frame.size.width/2 - 20*2, self.menuButtonHeight);
+            home_button.buttonColor = _menuColor;
             [self addSubview:home_button];
             
         }
@@ -102,9 +115,9 @@
             index --;
             NSString *title = titles[i];
             SlideMenuButton *home_button = [[SlideMenuButton alloc]initWithTitle:title];
-            home_button.center = CGPointMake(keyWindow.frame.size.width/4, keyWindow.frame.size.height/2 - 50*index - 20*index);
-            home_button.bounds = CGRectMake(0, 0, keyWindow.frame.size.width/2 - 20*2, 50);
-            home_button.buttonColor = DEMOCOLOR;
+            home_button.center = CGPointMake(keyWindow.frame.size.width/4, keyWindow.frame.size.height/2 - self.menuButtonHeight*index - 20*index);
+            home_button.bounds = CGRectMake(0, 0, keyWindow.frame.size.width/2 - 20*2, self.menuButtonHeight);
+            home_button.buttonColor = _menuColor;
             [self addSubview:home_button];
             
         }
@@ -127,7 +140,7 @@
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextAddPath(context, path.CGPath);
-    [DEMOCOLOR set];
+    [_menuColor set];
     CGContextFillPath(context);
 
 }
@@ -152,12 +165,15 @@
         [UIView animateWithDuration:0.7 delay:0.0f usingSpringWithDamping:0.5f initialSpringVelocity:0.9f options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction animations:^{
             
             helperSideView.center = CGPointMake(keyWindow.center.x, helperSideView.frame.size.height/2);
-            blurView.alpha = 1.0f;
             
         } completion:^(BOOL finished) {
             [self finishAnimation];
         }];
     
+        [UIView animateWithDuration:0.3 animations:^{
+            blurView.alpha = 1.0f;
+            
+        }];
         
         
         [self beforeAnimation];
@@ -173,6 +189,7 @@
                 [self finishAnimation];
             }
         }];
+        
 
         [self animateButtons];
         
@@ -219,11 +236,15 @@
         
         helperSideView.center = CGPointMake(-helperSideView.frame.size.height/2, helperSideView.frame.size.height/2);
         
-        blurView.alpha = 0.0f;
     } completion:^(BOOL finished) {
         [self finishAnimation];
     }];
     
+    [UIView animateWithDuration:0.3 animations:^{
+
+        blurView.alpha = 0.0f;
+        
+    }];
     
     [self beforeAnimation];
     [UIView animateWithDuration:0.7 delay:0.0f usingSpringWithDamping:0.7f initialSpringVelocity:2.0f options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction animations:^{

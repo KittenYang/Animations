@@ -12,14 +12,18 @@
 
 
 /**
- *  初始化方法
+ *  onvenient init method
  *
  *  @param title title
  *
- *  @return 实例对象
+ *  @return object
  */
 -(id)initWithTitle:(NSString *)title;
 
+
+/**
+ *  The button color
+ */
 @property(nonatomic,strong)UIColor *buttonColor;
 
 @end
