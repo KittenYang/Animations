@@ -96,4 +96,4 @@ And then,the code will automaticly compute the translation value and alpha value
 # 5.GooeySlideMenu
 ![](GooeySlideMenu.gif)
 
-> ##TODO:Add menu buttons clicked block.
+> ###TODO:Add menu buttons clicked block.
