@@ -108,3 +108,7 @@ And then,the code will automaticly compute the translation value and alpha value
     [menu trigger];
 ```
 Then the buttons will automatically layout depend on your buttons counts.It's really smart.
+
+---
+
+# 6....
