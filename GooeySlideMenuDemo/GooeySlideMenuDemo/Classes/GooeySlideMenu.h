@@ -39,6 +39,8 @@ typedef void(^MenuButtonClickedBlock)(NSInteger index,NSString *title,NSInteger 
 -(void)trigger;
 
 
+
+
 /**
  *  The height of the menu height
  */

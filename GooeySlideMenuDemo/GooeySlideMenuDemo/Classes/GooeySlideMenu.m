@@ -50,7 +50,6 @@
         blurView.frame = keyWindow.frame;
         blurView.alpha = 0.0f;
         
-        
         helperSideView = [[UIView alloc]initWithFrame:CGRectMake(-40, 0, 40, 40)];
         helperSideView.backgroundColor = [UIColor redColor];
         helperSideView.hidden = YES;
@@ -62,7 +61,7 @@
         [keyWindow addSubview:helperCenterView];
         
         
-        self.frame = CGRectMake(-keyWindow.frame.size.width/2-EXTRAAREA, 0, keyWindow.frame.size.width/2+EXTRAAREA, keyWindow.frame.size.height);
+        self.frame = CGRectMake(- keyWindow.frame.size.width/2 - EXTRAAREA, 0, keyWindow.frame.size.width/2+EXTRAAREA, keyWindow.frame.size.height);
         self.backgroundColor = [UIColor clearColor];
         [keyWindow insertSubview:self belowSubview:helperSideView];
         
@@ -79,6 +78,7 @@
 
 -(void)addButtons:(NSArray *)titles{
 
+    
     
     if (titles.count % 2 == 0) {
         
