@@ -91,6 +91,8 @@ And then,the code will automaticly compute the translation value and alpha value
 
 ---
 
+Just look at the simple code.
+
 
 
 # 5.GooeySlideMenu
