@@ -113,8 +113,4 @@ Then the buttons will automatically layout depend on your buttons counts.It's re
 
 ---
 
-# 6....
-![](https://s-media-cache-ak0.pinimg.com/originals/7b/73/6a/7b736a33be802fc2e737e3df56b4ef0e.gif)
 
-# 7....
-![](http://assets.materialup.com/uploads/0a84be33-ca4b-4ab3-84b1-f2533c8a18a1/800x600.gif)
