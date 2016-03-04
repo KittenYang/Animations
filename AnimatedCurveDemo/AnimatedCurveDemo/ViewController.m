@@ -21,8 +21,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-
-
 @end
 
 @implementation ViewController{
@@ -78,7 +76,6 @@
     __weak KYPullToCurveVeiw *weakHeaderView = headerView;
     
     [headerView triggerPulling];
-    
     [headerView addRefreshingBlock:^{
         
         //具体的操作
@@ -87,9 +84,7 @@
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            
             [weakHeaderView stopRefreshing];
-            
         });
         
     }];
@@ -101,17 +96,12 @@
     
     [footerView addRefreshingBlock:^{
         
-        //具体的操作
-        //...
-        
+        //具体的操作，模拟 2s 倒计时
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-            
             [weakFooterView stopRefreshing];
-            
         });
-        
         
     }];
 
@@ -119,11 +109,8 @@
 }
 
 
-
-
 #pragma mark -- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
     return 50;
 }
 
@@ -140,7 +127,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

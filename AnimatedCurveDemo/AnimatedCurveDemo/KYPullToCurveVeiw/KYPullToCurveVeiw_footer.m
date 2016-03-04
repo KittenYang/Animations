@@ -12,7 +12,6 @@
 #import "UIView+Convenient.h"
 
 
-
 @interface KYPullToCurveVeiw_footer()
 
 @property(nonatomic,assign)CGFloat progress;
@@ -21,12 +20,10 @@
 
 @end
 
-
 @implementation KYPullToCurveVeiw_footer{
     
     LabelView *labelView;
     CurveView *curveView;
-
     
     CGSize contentSize;
     CGFloat originOffset;
@@ -60,11 +57,8 @@
     
 }
 
-
 -(void)setProgress:(CGFloat)progress{
     
-    
-//    NSLog(@"progress:%f",progress);
     if (!self.associatedScrollView.tracking) {
         labelView.loading = YES;
     }
@@ -73,19 +67,15 @@
 
         curveView.progress = labelView.progress = progress;
     }
-
-    
     
     CGFloat diff =  self.associatedScrollView.contentOffset.y - (self.associatedScrollView.contentSize.height - self.associatedScrollView.height) - self.pullDistance + 10;
 
-    
     if (diff > 0) {
         
         if (!self.associatedScrollView.tracking && !self.hidden) {
             if (!notTracking) {
                 notTracking = YES;
                 loading = YES;
-//                labelView.loading = YES;
             
                 NSLog(@"旋转");
                 
@@ -93,42 +83,31 @@
                 [self startLoading:curveView];
                 
                 [UIView animateWithDuration:0.3 animations:^{
-                    
                     self.associatedScrollView.contentInset = UIEdgeInsetsMake(originOffset, 0, self.pullDistance, 0);
-                    
                 } completion:^(BOOL finished) {
-                    
                     self.refreshingBlock();
-                    
                 }];
             }
         }
-        
         if (!loading) {
-            
             curveView.transform = CGAffineTransformMakeRotation(M_PI * (diff*2/180));
         }
-
     }else{
-        
         labelView.loading = NO;
         curveView.transform = CGAffineTransformIdentity;
-        
+    
     }
     
 }
 
 
--(void)addRefreshingBlock:(void (^)(void))block{
+-(void)addRefreshingBlock:(void (^)(void))block {
     
     self.refreshingBlock = block;
 
 }
 
-
-
-
--(void)stopRefreshing{
+-(void)stopRefreshing {
     
     willEnd = YES;
     
@@ -150,17 +129,13 @@
 
 #pragma mark -- Helper Method
 
--(void)setUp{
-    
-//    self.backgroundColor = [UIColor redColor];
+-(void)setUp {
     
     //一些默认参数
     self.pullDistance = 99;
     
-    
     curveView = [[CurveView alloc]initWithFrame:CGRectMake(20, 0, 30, self.height)];
     [self insertSubview:curveView atIndex:0];
-    
     
     labelView = [[LabelView alloc]initWithFrame:CGRectMake(curveView.right+ 10, curveView.y, 150, curveView.height)];
     labelView.state = UP;
@@ -168,11 +143,7 @@
     
 }
 
-
-
-
-- (void)startLoading:(UIView *)rotateView
-{
+- (void)startLoading:(UIView *)rotateView {
 
     rotateView.transform = CGAffineTransformIdentity;
     
@@ -188,53 +159,36 @@
 
 
 - (void)stopLoading:(UIView *)rotateView{
-    
     [rotateView.layer removeAllAnimations];
-    
 }
 
 #pragma mark -- KVO
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    
 
-
-    
     if ([keyPath isEqualToString:@"contentSize"]) {
-
-
         contentSize = [[change valueForKey:NSKeyValueChangeNewKey]CGSizeValue];
         if (contentSize.height > 0.0) {
             self.hidden = NO;
         }
         self.frame = CGRectMake(self.associatedScrollView.width/2-200/2, contentSize.height, 200, 100);
-//        NSLog(@"contentSize");
-        
     }
     
     if ([keyPath isEqualToString:@"contentOffset"]) {
-        
-        
         CGPoint contentOffset = [[change valueForKey:NSKeyValueChangeNewKey] CGPointValue];
-        
-//        NSLog(@"diff:%f",contentOffset.y - (contentSize.height - self.associatedScrollView.height));
-//        NSLog(@"contentOffset.y:%f",contentOffset.y);
-//        NSLog(@"contentSize.height:%f",contentSize.height);
-//        NSLog(@"self.associatedScrollView.height:%f",self.associatedScrollView.height);
-        
         if (contentOffset.y >= (contentSize.height - self.associatedScrollView.height)) {
             
             self.center = CGPointMake(self.center.x, contentSize.height + (contentOffset.y - (contentSize.height - self.associatedScrollView.height))/2);
             
             self.progress = MAX(0.0, MIN((contentOffset.y - (contentSize.height - self.associatedScrollView.height)) / self.pullDistance, 1.0));
-        
         }
     }
+    
 }
 
 
 #pragma dealloc
+
 -(void)dealloc{
-    
     [self.associatedScrollView removeObserver:self forKeyPath:@"contentOffset"];
     [self.associatedScrollView removeObserver:self forKeyPath:@"contentSize"];
     

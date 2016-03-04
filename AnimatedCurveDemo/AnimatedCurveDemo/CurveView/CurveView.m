@@ -26,23 +26,17 @@
 -(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        
-        
     }
     return self;
 }
 
 
 -(void)setProgress:(CGFloat)progress{
-
     self.curveLayer.progress = progress;
     [self.curveLayer setNeedsDisplay];
-    
-    
 }
 
 -(void)willMoveToSuperview:(UIView *)newSuperview{
-
     self.curveLayer = [CurveLayer layer];
     self.curveLayer.frame = self.bounds;
     self.curveLayer.contentsScale = [UIScreen mainScreen].scale;
@@ -51,8 +45,6 @@
     [self.layer addSublayer:self.curveLayer];
     
 }
-
-
 
 
 @end

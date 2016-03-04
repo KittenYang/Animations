@@ -33,27 +33,19 @@
 
     self = [super initWithFrame:frame];
     if (self) {
-        
         [self setUp];
-
-
-
     }
-    
     return self;
-    
 }
 
 
 -(void)setUp{
-    
     self.state = DOWN;
     titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, self.height/2-LabelHeight/2, self.width, LabelHeight)];
     titleLabel.text = kPullingString;
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.adjustsFontSizeToFitWidth = YES;
     [self addSubview:titleLabel];
-    
 }
 
 
@@ -74,13 +66,9 @@
         }else{
             titleLabel.text = kPullingString;
         }
-
-        
     }
     
-    
 }
-
 
 
 @end

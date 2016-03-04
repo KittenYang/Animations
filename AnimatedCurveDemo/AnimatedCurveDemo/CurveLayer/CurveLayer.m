@@ -20,13 +20,10 @@
 -(void)drawInContext:(CGContextRef)ctx{
 
     [super drawInContext:ctx];
-
     
     UIGraphicsPushContext(ctx);
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-    //Draw
-    
     //Path 1
     UIBezierPath *curvePath1 = [UIBezierPath bezierPath];
     curvePath1.lineCapStyle = kCGLineCapRound;
@@ -53,7 +50,6 @@
         CGPoint pointA = CGPointMake(self.frame.size.width/2-Radius, CenterY - Space + LineLength - LineLength*(self.progress-0.5)*2);
         CGPoint pointB = CGPointMake(self.frame.size.width/2-Radius, CenterY - Space);
 
-        
         [curvePath1 moveToPoint:pointA];
         [curvePath1 addLineToPoint:pointB];
         [curvePath1 addArcWithCenter:CGPointMake(self.frame.size.width/2, CenterY-Space) radius:Radius startAngle:M_PI endAngle:M_PI + ((M_PI*9/10) * (self.progress-0.5)*2) clockwise:YES];
@@ -64,13 +60,12 @@
         [curvePath1 appendPath:arrowPath];
     }
     
-    
-    
     //Path 2
     UIBezierPath *curvePath2 = [UIBezierPath bezierPath];
     curvePath2.lineCapStyle = kCGLineCapRound;
     curvePath2.lineJoinStyle = kCGLineJoinRound;
     curvePath2.lineWidth = 2.0f;
+    
     if (self.progress <= 0.5) {
         
         CGPoint pointA = CGPointMake(self.frame.size.width/2+Radius, 2*self.progress * (CenterY + Space - LineLength));
@@ -84,6 +79,7 @@
         [curvePath2 appendPath:arrowPath];
 
     }
+    
     if (self.progress > 0.5) {
         [curvePath2 moveToPoint:CGPointMake(self.frame.size.width/2+Radius, CenterY + Space - LineLength + LineLength*(self.progress-0.5)*2)];
         [curvePath2 addLineToPoint:CGPointMake(self.frame.size.width/2+Radius, CenterY + Space)];
@@ -96,31 +92,25 @@
 
     }
     
-    
     CGContextSaveGState(context);
     CGContextRestoreGState(context);
 
-    
     [[UIColor blackColor] setStroke];
     [arrowPath  stroke];
     [curvePath1 stroke];
     [curvePath2 stroke];
     
     UIGraphicsPopContext();
- 
-    
+
 }
 
 
 #pragma mark -- Help Method
 
 -(CGPoint)getMiddlePointWithPoint1:(CGPoint)point1 point2:(CGPoint)point2{
-    
     CGFloat middle_x = (point1.x + point2.x)/2;
     CGFloat middle_y = (point1.y + point2.y)/2;
-    
     return CGPointMake(middle_x, middle_y);
-    
 }
 
 -(CGFloat)getDistanceWithPoint1:(CGPoint)point1 point2:(CGPoint)point2{
@@ -128,8 +118,5 @@
     return sqrtf(pow(fabs(point1.x - point2.x), 2) + pow(fabs(point1.y - point2.y), 2));
     
 }
-
-
-
 
 @end
